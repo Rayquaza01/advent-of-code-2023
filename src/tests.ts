@@ -1,8 +1,8 @@
 import assert from "assert";
 import { describe, it } from "mocha";
 
-import { puzzle01_1 } from "./day1/puzzle01.1";
-import { puzzle01_2 } from "./day1/puzzle01.2";
+import { puzzle01_1 } from "./d01/puzzle01.1";
+import { puzzle01_2 } from "./d01/puzzle01.2";
 
 import fs from "fs";
 
