@@ -13,7 +13,7 @@ function textToNumber(val: string) {
 }
 
 
-export function puzzle1_2(input: string): number {
+export function puzzle01_2(input: string): number {
     let sum = 0;
 
     const nums = input

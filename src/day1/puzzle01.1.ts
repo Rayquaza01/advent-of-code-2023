@@ -1,4 +1,4 @@
-export function puzzle1_1(input: string): number {
+export function puzzle01_1(input: string): number {
     let sum = 0;
 
     const nums = input
