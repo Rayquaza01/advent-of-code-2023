@@ -21,7 +21,7 @@ describe("Puzzle 1", function () {
     });
 
     describe("Part 2", function() {
-        it("find the first and last digit in a line, including digits written as words, and sum those for each line", function() {
+        it("find the first and last digit in a line, including digits written as words, and sum each line", function() {
             assert.equal(puzzle1_2(d1p2), 281);
         });
     });
