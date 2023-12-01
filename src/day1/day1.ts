@@ -7,10 +7,9 @@ import fs from "fs";
 console.log("Puzzle 1");
 
 const args = new ArgumentParser();
-args.add_argument("-i", { type: "str", default: "./input/puzzle1-input" });
+args.add_argument("-i", { type: "str", default: "./input/day1/puzzle1-input" });
 args.add_argument("-p", { type: "int", default: 0 });
 const opts = args.parse_args();
-console.log(opts);
 
 const file = fs.readFileSync(opts.i, {encoding: "utf-8"});
 
