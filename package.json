@@ -7,7 +7,7 @@
     "test": "mocha dist/tests.js",
     "build": "tsc",
     "watch": "tsc --watch",
-    "day1": "node dist/day1/day1.js"
+    "d01": "node dist/cli.js -d 0"
   },
   "author": "",
   "license": "MIT",
