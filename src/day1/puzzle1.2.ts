@@ -1,4 +1,3 @@
-import fs from "fs";
 const NUMBER_STRINGS = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
 // regex in non capturing group, matching digit or text digit at start of line
 const NUMBER_REGEX = new RegExp("^(?:\\d|" + NUMBER_STRINGS.slice(1).join("|") + ")");

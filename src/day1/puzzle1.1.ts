@@ -17,5 +17,3 @@ export function puzzle1_1(input: string): number {
 
     return sum;
 }
-
-
