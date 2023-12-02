@@ -2,14 +2,18 @@ import { ArgumentParser } from "argparse";
 import { puzzle01_1 } from "./d01/puzzle01.1";
 import { puzzle01_2 } from "./d01/puzzle01.2";
 
+import {puzzle02_1 } from "./d02/puzzle02.1";
+
 import fs from "fs";
 
 const solutions = [
-    [puzzle01_1, puzzle01_2]
+    [puzzle01_1, puzzle01_2],
+    [puzzle02_1]
 ];
 
 const input = [
-    "./input/d01.data"
+    "./input/d01.data",
+    "./input/d02.data",
 ];
 
 const args = new ArgumentParser();
