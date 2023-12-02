@@ -5,6 +5,7 @@ import { puzzle01_1 } from "./d01/puzzle01.1";
 import { puzzle01_2 } from "./d01/puzzle01.2";
 
 import { puzzle02_1 } from "./d02/puzzle02.1";
+import { puzzle02_2 } from "./d02/puzzle02.2";
 
 import fs from "fs";
 
@@ -35,6 +36,12 @@ describe("Puzzle 2", function () {
     describe("Part 1", function () {
         it("should find if a key contains a larger value than maximum, and sum ids that have valid keys", function () {
             assert.equal(puzzle02_1(d02p1), 8);
+        });
+    });
+
+    describe("Part 2", function () {
+        it("should find the max of each key in each line, multiply each line's maxes, and sum the products", function () {
+            assert.equal(puzzle02_2(d02p1), 2286);
         });
     });
 });
