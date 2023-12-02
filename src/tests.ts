@@ -1,11 +1,7 @@
 import assert from "assert";
 import { describe, it } from "mocha";
 
-import { puzzle01_1 } from "./d01/puzzle01.1";
-import { puzzle01_2 } from "./d01/puzzle01.2";
-
-import { puzzle02_1 } from "./d02/puzzle02.1";
-import { puzzle02_2 } from "./d02/puzzle02.2";
+import * as PuzzleSolutions from "./solutions";
 
 import fs from "fs";
 
@@ -21,13 +17,13 @@ const d02p1 = ReadFile("./input/d02p1.test");
 describe("Puzzle 1", function () {
     describe("Part 1", function () {
         it("find the first and last digit in a line, and sum each line", function() {
-            assert.equal(puzzle01_1(d01p1), 142);
+            assert.equal(PuzzleSolutions.puzzle01p1(d01p1), 142);
         });
     });
 
     describe("Part 2", function () {
         it("find the first and last digit in a line, including digits written as words, and sum each line", function() {
-            assert.equal(puzzle01_2(d01p2), 281);
+            assert.equal(PuzzleSolutions.puzzle01p2(d01p2), 281);
         });
     });
 });
@@ -35,13 +31,13 @@ describe("Puzzle 1", function () {
 describe("Puzzle 2", function () {
     describe("Part 1", function () {
         it("should find if a key contains a larger value than maximum, and sum ids that have valid keys", function () {
-            assert.equal(puzzle02_1(d02p1), 8);
+            assert.equal(PuzzleSolutions.puzzle02p1(d02p1), 8);
         });
     });
 
     describe("Part 2", function () {
         it("should find the max of each key in each line, multiply each line's maxes, and sum the products", function () {
-            assert.equal(puzzle02_2(d02p1), 2286);
+            assert.equal(PuzzleSolutions.puzzle02p2(d02p1), 2286);
         });
     });
 });
