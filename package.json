@@ -7,8 +7,8 @@
     "test": "mocha dist/tests.js",
     "build": "tsc",
     "watch": "tsc --watch",
-    "d01": "node dist/cli.js -d 0",
-    "d02": "node dist/cli.js -d 1"
+    "d01": "node dist/cli.js -d 1",
+    "d02": "node dist/cli.js -d 2"
   },
   "author": "",
   "license": "MIT",
