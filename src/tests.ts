@@ -52,9 +52,9 @@ describe("Puzzle 3", function () {
         });
     });
 
-    // describe("Part 2", function () {
-    //     it("should find the max of each key in each line, multiply each line's maxes, and sum the products", function () {
-    //         assert.equal(PuzzleSolutions.puzzle02p2(d02p1), 2286);
-    //     });
-    // });
+    describe("Part 2", function () {
+        it("should find all symbols with two adjacent numbers, and sum the the adjacent number's products", function () {
+            assert.equal(PuzzleSolutions.puzzle03p2(d03p1), 467835);
+        });
+    });
 });

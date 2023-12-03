@@ -7,7 +7,7 @@ import fs from "fs";
 const solutions = [
     [PuzzleSolutions.puzzle01p1, PuzzleSolutions.puzzle01p2],
     [PuzzleSolutions.puzzle02p1, PuzzleSolutions.puzzle02p2],
-    [PuzzleSolutions.puzzle03p1]
+    [PuzzleSolutions.puzzle03p1, PuzzleSolutions.puzzle03p2]
 ];
 
 const input = [
