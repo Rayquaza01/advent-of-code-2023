@@ -13,8 +13,8 @@ const d01p1 = ReadFile("./input/d01p1.test");
 const d01p2 = ReadFile("./input/d01p2.test");
 
 const d02p1 = ReadFile("./input/d02p1.test");
-
 const d03p1 = ReadFile("./input/d03p1.test");
+const d04p1 = ReadFile("./input/d04p1.test");
 
 describe("Puzzle 1", function () {
     describe("Part 1", function () {
@@ -55,6 +55,20 @@ describe("Puzzle 3", function () {
     describe("Part 2", function () {
         it("should find all symbols with two adjacent numbers, and sum the the adjacent number's products", function () {
             assert.equal(PuzzleSolutions.puzzle03p2(d03p1), 467835);
+        });
+    });
+});
+
+describe("Puzzle 4", function () {
+    describe("Part 1", function () {
+        it("should find all winning numbers on a card, and sum the cards", function () {
+            assert.equal(PuzzleSolutions.puzzle04p1(d04p1), 13);
+        });
+    });
+
+    describe("Part 2", function () {
+        it("should give copies of the next card for number of winners, and count the number of processed cards", function () {
+            assert.equal(PuzzleSolutions.puzzle04p2(d04p1), 30);
         });
     });
 });

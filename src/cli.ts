@@ -7,13 +7,15 @@ import fs from "fs";
 const solutions = [
     [PuzzleSolutions.puzzle01p1, PuzzleSolutions.puzzle01p2],
     [PuzzleSolutions.puzzle02p1, PuzzleSolutions.puzzle02p2],
-    [PuzzleSolutions.puzzle03p1, PuzzleSolutions.puzzle03p2]
+    [PuzzleSolutions.puzzle03p1, PuzzleSolutions.puzzle03p2],
+    [PuzzleSolutions.puzzle04p1, PuzzleSolutions.puzzle04p2]
 ];
 
 const input = [
     "./input/d01.data",
     "./input/d02.data",
-    "./input/d03.data"
+    "./input/d03.data",
+    "./input/d04.data"
 ];
 
 const args = new ArgumentParser();
