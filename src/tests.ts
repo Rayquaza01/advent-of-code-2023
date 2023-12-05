@@ -15,6 +15,7 @@ const d01p2 = ReadFile("./input/d01p2.test");
 const d02p1 = ReadFile("./input/d02p1.test");
 const d03p1 = ReadFile("./input/d03p1.test");
 const d04p1 = ReadFile("./input/d04p1.test");
+const d05p1 = ReadFile("./input/d05p1.test");
 
 describe("Puzzle 1", function () {
     describe("Part 1", function () {
@@ -71,4 +72,18 @@ describe("Puzzle 4", function () {
             assert.equal(PuzzleSolutions.puzzle04p2(d04p1), 30);
         });
     });
+});
+
+describe("Puzzle 5", function () {
+    describe("Part 1", function () {
+        it("should find the closest location that maps tot the initial seeds", function () {
+            assert.equal(PuzzleSolutions.puzzle05p1(d05p1), 35);
+        });
+    });
+
+    // describe("Part 2", function () {
+    //     it("should give copies of the next card for number of winners, and count the number of processed cards", function () {
+    //         assert.equal(PuzzleSolutions.puzzle05p2(d05p1), 30);
+    //     });
+    // });
 });
