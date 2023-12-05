@@ -81,9 +81,9 @@ describe("Puzzle 5", function () {
         });
     });
 
-    // describe("Part 2", function () {
-    //     it("should give copies of the next card for number of winners, and count the number of processed cards", function () {
-    //         assert.equal(PuzzleSolutions.puzzle05p2(d05p1), 30);
-    //     });
-    // });
+    describe("Part 2", function () {
+        it("should find the closest location that maps to a range of seeds", function () {
+            assert.equal(PuzzleSolutions.puzzle05p2(d05p1), 46);
+        });
+    });
 });
