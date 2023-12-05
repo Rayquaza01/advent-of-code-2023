@@ -29,53 +29,15 @@ class Map {
 
         return pos;
     }
-
-    atRange(pos: Position): Position {
-        for (const entry of this.entries) {
-            let start: number | undefined;
-            let range: number | undefined;
-
-            console.log("Entry", entry.src, entry.range);
-            console.log("Posit", pos.start, pos.range);
-
-            if (inRange(entry.src, entry.range, pos.start)) {
-                start = pos.start;
-            } else if( inRange(pos.start, pos.range, entry.src)) {
-                start = entry.src;
-            }
-
-            if (start === undefined) continue;
-
-            if (inRange(entry.src, entry.range, pos.start + pos.range)) {
-                range = (pos.start + pos.range) - start;
-            } else if (inRange(pos.start, pos.range, entry.src + entry.range)) {
-                range = (entry.src + entry.range) - start;
-            }
-
-            if (range === undefined) continue;
-
-            console.log("Selected", {start: this.at(start), range});
-            return { start: this.at(start), range };
-        }
-
-        // shouldn't get here
-        console.log("Selected", pos);
-        return pos;
-    }
 }
 
 function inRange(start: number, range: number, val: number): boolean {
-    return val >= start && val <= (start + range);
+    return val >= start && val < (start + range);
 }
 
 interface MapEntry {
     src: number
     dest: number
-    range: number
-}
-
-interface Position {
-    start: number
     range: number
 }
 
@@ -109,12 +71,7 @@ export function puzzle05p1(input: string) {
 export function puzzle05p2(input: string) {
     const maps = input.split("\n\n");
 
-    const seeds: Position[] = [];
     const seedRanges = maps[0].match(/\d+/g)?.map(Number) as number[];
-
-    for (let i = 0; i < seedRanges.length; i += 2) {
-        seeds.push({ start: seedRanges[i], range: seedRanges[i + 1] });
-    }
 
     const seedToSoil            = new Map(maps[1]);
     const soilToFertilizer      = new Map(maps[2]);
@@ -124,20 +81,29 @@ export function puzzle05p2(input: string) {
     const temperatureToHumidity = new Map(maps[6]);
     const humidityToLocation    = new Map(maps[7]);
 
-    const soils = seeds.map(s => seedToSoil.atRange(s));
+    let min = Infinity;
 
-    const locations = seeds
-        .map(s => seedToSoil.atRange(s))
-        .map(s => soilToFertilizer.atRange(s))
-        .map(f => fertilizerToWater.atRange(f))
-        .map(w => waterToLight.atRange(w))
-        .map(l => lightToTemperature.atRange(l))
-        .map(t => temperatureToHumidity.atRange(t))
-        .map(h => humidityToLocation.atRange(h))
-        .map(i => i.start);
+    for (let i = 0; i < seedRanges.length; i += 2) {
+        console.log("Running seed range", i, seedRanges[i], seedRanges[i + 1]);
 
-    console.log("Locations", locations);
+        for (let j = seedRanges[i]; j < seedRanges[i] + seedRanges[i + 1]; j++) {
+            const loc = humidityToLocation.at(
+                temperatureToHumidity.at(
+                    lightToTemperature.at(
+                        waterToLight.at(
+                            fertilizerToWater.at(
+                                soilToFertilizer.at(
+                                    seedToSoil.at(j)
+                                )
+                            )
+                        )
+                    )
+                )
+            );
 
-    const closest = Math.min(...locations);
-    return closest;
+            min = Math.min(loc, min);
+        }
+    }
+
+    return min;
 }
