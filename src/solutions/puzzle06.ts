@@ -21,12 +21,10 @@ export function puzzle06p1(input: string) {
     // set to 0, held = length / 2
 
     const raceWinningCounts = races.map(r => {
-        const maxHeld: number[] = [];
+        let maxHeld: number = 1;
         // console.log(r);
 
         const held = Math.floor(r.length / 2);
-        // console.log("Max:", held);
-        maxHeld.push(held);
 
         let left = Infinity;
         let right = Infinity;
@@ -35,18 +33,18 @@ export function puzzle06p1(input: string) {
         while (left > r.distance && right > r.distance) {
             if ((left = RaceDistance(held + dist, r.length)) > r.distance) {
                 // console.log("Left", left);
-                maxHeld.push(held + dist);
+                maxHeld++;
             }
 
             if ((right = RaceDistance(held - dist, r.length)) > r.distance) {
                 // console.log("Right", right);
-                maxHeld.push(held - dist);
+                maxHeld++
             }
 
             dist++;
         }
 
-        return maxHeld.length;
+        return maxHeld;
     });
 
     return raceWinningCounts.reduce((acc, i) => acc * i, 1);
@@ -55,11 +53,10 @@ export function puzzle06p1(input: string) {
 export function puzzle06p2(input: string) {
     const [length, distance] = input.replaceAll(" ", "").match(/\d+/g)?.map(Number) as number[];
 
-    const maxHeld: number[] = [];
+    let maxHeld: number = 1;
 
     const held = Math.floor(length / 2);
     // console.log("Max:", held);
-    maxHeld.push(held);
 
     let left = Infinity;
     let right = Infinity;
@@ -68,16 +65,16 @@ export function puzzle06p2(input: string) {
     while (left > distance && right > distance) {
         if ((left = RaceDistance(held + dist, length)) > distance) {
             // console.log("Left", left);
-            maxHeld.push(held + dist);
+            maxHeld++;
         }
 
         if ((right = RaceDistance(held - dist, length)) > distance) {
             // console.log("Right", right);
-            maxHeld.push(held - dist);
+            maxHeld++;
         }
 
         dist++;
     }
 
-    return maxHeld.length;
+    return maxHeld;
 }
