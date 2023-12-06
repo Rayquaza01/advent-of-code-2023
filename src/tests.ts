@@ -16,6 +16,7 @@ const d02p1 = ReadFile("./input/d02p1.test");
 const d03p1 = ReadFile("./input/d03p1.test");
 const d04p1 = ReadFile("./input/d04p1.test");
 const d05p1 = ReadFile("./input/d05p1.test");
+const d06p1 = ReadFile("./input/d06p1.test");
 
 describe("Puzzle 1", function () {
     describe("Part 1", function () {
@@ -86,4 +87,24 @@ describe("Puzzle 5", function () {
             assert.equal(PuzzleSolutions.puzzle05p2(d05p1), 46);
         });
     });
+});
+
+describe("Puzzle 6", function () {
+    describe("Part 1", function () {
+        it("should find the maximum number of ways to win, and multiply them", function () {
+            assert.equal(PuzzleSolutions.puzzle06p1(d06p1), 288);
+        });
+    });
+
+    describe("Part 2", function () {
+        it("should find the maximum number of ways to win, and multiply them", function () {
+            assert.equal(PuzzleSolutions.puzzle06p2(d06p1), 71503);
+        });
+    });
+
+    // describe("Part 2", function () {
+    //     it("should find the closest location that maps to a range of seeds", function () {
+    //         assert.equal(PuzzleSolutions.puzzle05p2(d05p1), 46);
+    //     });
+    // });
 });
