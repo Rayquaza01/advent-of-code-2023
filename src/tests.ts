@@ -17,6 +17,7 @@ const d03p1 = ReadFile("./input/d03p1.test");
 const d04p1 = ReadFile("./input/d04p1.test");
 const d05p1 = ReadFile("./input/d05p1.test");
 const d06p1 = ReadFile("./input/d06p1.test");
+const d07p1 = ReadFile("./input/d07p1.test");
 
 describe("Puzzle 1", function () {
     describe("Part 1", function () {
@@ -101,10 +102,24 @@ describe("Puzzle 6", function () {
             assert.equal(PuzzleSolutions.puzzle06p2(d06p1), 71503);
         });
     });
+});
+
+describe("Puzzle 7", function () {
+    describe("Part 1", function () {
+        it("should order each hand, multiply its bid by its rank, and sum", function () {
+            assert.equal(PuzzleSolutions.puzzle07p1(d07p1), 6440);
+        });
+    });
+
+    describe("Part 2", function () {
+        it("should order each hand, multiply its bid by its rank, and sum, treating J as a wild", function () {
+            assert.equal(PuzzleSolutions.puzzle07p2(d07p1), 5905);
+        });
+    });
 
     // describe("Part 2", function () {
-    //     it("should find the closest location that maps to a range of seeds", function () {
-    //         assert.equal(PuzzleSolutions.puzzle05p2(d05p1), 46);
+    //     it("should find the maximum number of ways to win, and multiply them", function () {
+    //         assert.equal(PuzzleSolutions.puzzle06p2(d06p1), 71503);
     //     });
     // });
 });

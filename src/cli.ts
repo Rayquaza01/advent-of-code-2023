@@ -10,7 +10,8 @@ const solutions = [
     [PuzzleSolutions.puzzle03p1, PuzzleSolutions.puzzle03p2],
     [PuzzleSolutions.puzzle04p1, PuzzleSolutions.puzzle04p2],
     [PuzzleSolutions.puzzle05p1, PuzzleSolutions.puzzle05p2],
-    [PuzzleSolutions.puzzle06p1, PuzzleSolutions.puzzle06p2]
+    [PuzzleSolutions.puzzle06p1, PuzzleSolutions.puzzle06p2],
+    [PuzzleSolutions.puzzle07p1, PuzzleSolutions.puzzle07p2]
 ];
 
 const input = [
