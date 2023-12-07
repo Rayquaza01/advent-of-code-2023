@@ -49,10 +49,6 @@ function evaluateHand(hand: number[]): HandTypes {
             : counts[card] = 1;
     }
 
-    // if j is only type of card, return immediately
-    // otherwise, it will be wiped in the next part
-    if (counts[1] === 5) return HandTypes.FIVE_OF_KIND;
-
     // treat j as a wild card
     // find the max value that isn't j,
     // increment it by the j's value
@@ -70,8 +66,11 @@ function evaluateHand(hand: number[]): HandTypes {
             }
         }
 
-        counts[maxIndex] += counts[1];
-        counts[1] = 0;
+        // if found next high value, add J to it
+        if (maxIndex > -1) {
+            counts[maxIndex] += counts[1];
+            counts[1] = 0;
+        }
     }
 
     // bitwise hand evaluation
