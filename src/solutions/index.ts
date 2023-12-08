@@ -5,3 +5,4 @@ export * from "./puzzle04";
 export * from "./puzzle05";
 export * from "./puzzle06";
 export * from "./puzzle07";
+export * from "./puzzle08";

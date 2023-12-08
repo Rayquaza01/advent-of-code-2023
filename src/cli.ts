@@ -11,7 +11,8 @@ const solutions = [
     [PuzzleSolutions.puzzle04p1, PuzzleSolutions.puzzle04p2],
     [PuzzleSolutions.puzzle05p1, PuzzleSolutions.puzzle05p2],
     [PuzzleSolutions.puzzle06p1, PuzzleSolutions.puzzle06p2],
-    [PuzzleSolutions.puzzle07p1, PuzzleSolutions.puzzle07p2]
+    [PuzzleSolutions.puzzle07p1, PuzzleSolutions.puzzle07p2],
+    [PuzzleSolutions.puzzle08p1, PuzzleSolutions.puzzle08p2]
 ];
 
 const input = [

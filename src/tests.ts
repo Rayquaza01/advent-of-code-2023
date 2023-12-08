@@ -19,6 +19,10 @@ const d05p1 = ReadFile("./input/d05p1.test");
 const d06p1 = ReadFile("./input/d06p1.test");
 const d07p1 = ReadFile("./input/d07p1.test");
 
+const d08p1a = ReadFile("./input/d08p1a.test");
+const d08p1b = ReadFile("./input/d08p1b.test");
+const d08p2 = ReadFile("./input/d08p2.test");
+
 describe("Puzzle 1", function () {
     describe("Part 1", function () {
         it("find the first and last digit in a line, and sum each line", function() {
@@ -116,10 +120,22 @@ describe("Puzzle 7", function () {
             assert.equal(PuzzleSolutions.puzzle07p2(d07p1), 5905);
         });
     });
+});
 
-    // describe("Part 2", function () {
-    //     it("should find the maximum number of ways to win, and multiply them", function () {
-    //         assert.equal(PuzzleSolutions.puzzle06p2(d06p1), 71503);
-    //     });
-    // });
+describe("Puzzle 8", function () {
+    describe("Part 1", function () {
+        it("should find the number of steps needed to reach ZZZ", function () {
+            assert.equal(PuzzleSolutions.puzzle08p1(d08p1a), 2);
+        });
+
+        it("should find the number of steps needed to reach ZZZ", function () {
+            assert.equal(PuzzleSolutions.puzzle08p1(d08p1b), 6);
+        });
+    });
+
+    describe("Part 2", function () {
+        it("should find the number of steps needed to reach all ending with Z", function () {
+            assert.equal(PuzzleSolutions.puzzle08p2(d08p2), 6);
+        });
+    });
 });
