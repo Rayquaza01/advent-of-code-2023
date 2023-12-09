@@ -23,6 +23,8 @@ const d08p1a = ReadFile("./input/d08p1a.test");
 const d08p1b = ReadFile("./input/d08p1b.test");
 const d08p2 = ReadFile("./input/d08p2.test");
 
+const d09p1 = ReadFile("./input/d09p1.test");
+
 describe("Puzzle 1", function () {
     describe("Part 1", function () {
         it("find the first and last digit in a line, and sum each line", function() {
@@ -136,6 +138,20 @@ describe("Puzzle 8", function () {
     describe("Part 2", function () {
         it("should find the number of steps needed to reach all ending with Z", function () {
             assert.equal(PuzzleSolutions.puzzle08p2(d08p2), 6);
+        });
+    });
+});
+
+describe("Puzzle 9", function () {
+    describe("Part 1", function () {
+        it("should find the next in the pattern for each value, and sum them", function () {
+            assert.equal(PuzzleSolutions.puzzle09p1(d09p1), 114);
+        });
+    });
+
+    describe("Part 2", function () {
+        it("should find the prev in the pattern for each value, and sum them", function () {
+            assert.equal(PuzzleSolutions.puzzle09p2(d09p1), 2);
         });
     });
 });
