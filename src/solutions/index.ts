@@ -7,3 +7,4 @@ export * from "./puzzle06";
 export * from "./puzzle07";
 export * from "./puzzle08";
 export * from "./puzzle09";
+export * from "./puzzle10";

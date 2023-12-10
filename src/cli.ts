@@ -13,7 +13,8 @@ const solutions = [
     [PuzzleSolutions.puzzle06p1, PuzzleSolutions.puzzle06p2],
     [PuzzleSolutions.puzzle07p1, PuzzleSolutions.puzzle07p2],
     [PuzzleSolutions.puzzle08p1, PuzzleSolutions.puzzle08p2],
-    [PuzzleSolutions.puzzle09p1, PuzzleSolutions.puzzle09p2]
+    [PuzzleSolutions.puzzle09p1, PuzzleSolutions.puzzle09p2],
+    [PuzzleSolutions.puzzle10p1, PuzzleSolutions.puzzle10p2]
 ];
 
 const input = [
@@ -22,7 +23,27 @@ const input = [
     "./input/d03.data",
     "./input/d04.data",
     "./input/d05.data",
-    "./input/d06.data"
+    "./input/d06.data",
+    "./input/d06.data",
+    "./input/d07.data",
+    "./input/d08.data",
+    "./input/d09.data",
+    "./input/d10.data",
+    "./input/d11.data",
+    "./input/d12.data",
+    "./input/d13.data",
+    "./input/d14.data",
+    "./input/d15.data",
+    "./input/d15.data",
+    "./input/d16.data",
+    "./input/d17.data",
+    "./input/d18.data",
+    "./input/d19.data",
+    "./input/d20.data",
+    "./input/d21.data",
+    "./input/d22.data",
+    "./input/d23.data",
+    "./input/d24.data",
 ];
 
 const args = new ArgumentParser();

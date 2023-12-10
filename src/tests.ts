@@ -25,6 +25,11 @@ const d08p2 = ReadFile("./input/d08p2.test");
 
 const d09p1 = ReadFile("./input/d09p1.test");
 
+const d10p1a = ReadFile("./input/d10p1a.test");
+const d10p1b = ReadFile("./input/d10p1b.test");
+const d10p2a = ReadFile("./input/d10p2a.test");
+const d10p2b = ReadFile("./input/d10p2b.test");
+
 describe("Puzzle 1", function () {
     describe("Part 1", function () {
         it("find the first and last digit in a line, and sum each line", function() {
@@ -152,6 +157,27 @@ describe("Puzzle 9", function () {
     describe("Part 2", function () {
         it("should find the prev in the pattern for each value, and sum them", function () {
             assert.equal(PuzzleSolutions.puzzle09p2(d09p1), 2);
+        });
+    });
+});
+
+describe("Puzzle 10", function () {
+    describe("Part 1", function () {
+        it("find the farthest distance from the start", function () {
+            assert.equal(PuzzleSolutions.puzzle10p1(d10p1a), 4);
+        });
+
+        it("find the farthest distance from the start", function () {
+            assert.equal(PuzzleSolutions.puzzle10p1(d10p1b), 8);
+        });
+    });
+
+    describe("Part 2", function () {
+        it("should find the number of tiles enclosed by the loop", function () {
+            assert.equal(PuzzleSolutions.puzzle10p2(d10p2a), 4);
+        });
+        it("should find the number of tiles enclosed by the loop", function () {
+            assert.equal(PuzzleSolutions.puzzle10p2(d10p2b), 8);
         });
     });
 });
