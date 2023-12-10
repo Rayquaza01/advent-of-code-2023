@@ -67,7 +67,6 @@ function PipeLookup(connections: number): string {
 interface Node {
     connections: number,
     distance: number
-    filled: boolean
 }
 
 export function puzzle10p1(input: string) {
@@ -76,7 +75,7 @@ export function puzzle10p1(input: string) {
         .slice(0, -1)
         .map(line => {
             return line.split("").map(c => {
-                return { connections: Pipes[c] ?? 0, distance: Infinity, filled: false };
+                return { connections: Pipes[c] ?? 0, distance: Infinity };
             });
         });
 
@@ -152,7 +151,7 @@ export function puzzle10p2(input: string) {
         .slice(0, -1)
         .map(line => {
             return line.split("").map(c => {
-                return { connections: Pipes[c] ?? 0, distance: Infinity, filled: false };
+                return { connections: Pipes[c] ?? 0, distance: Infinity };
             });
         });
 
