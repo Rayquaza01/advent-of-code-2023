@@ -30,6 +30,8 @@ const d10p1b = ReadFile("./input/d10p1b.test");
 const d10p2a = ReadFile("./input/d10p2a.test");
 const d10p2b = ReadFile("./input/d10p2b.test");
 
+const d11p1 = ReadFile("./input/d11p1.test");
+
 describe("Puzzle 1", function () {
     describe("Part 1", function () {
         it("find the first and last digit in a line, and sum each line", function() {
@@ -180,4 +182,18 @@ describe("Puzzle 10", function () {
             assert.equal(PuzzleSolutions.puzzle10p2(d10p2b), 8);
         });
     });
+});
+
+describe("Puzzle 11", function () {
+    describe("Part 1", function () {
+        it("should find the distances between each pair of galaxies, and sum them", function () {
+            assert.equal(PuzzleSolutions.puzzle11p1(d11p1), 374);
+        });
+    });
+
+    // describe("Part 2", function () {
+    //     it("should find the number of tiles enclosed by the loop", function () {
+    //         assert.equal(PuzzleSolutions.puzzle10p2(d10p2b), 8);
+    //     });
+    // });
 });
