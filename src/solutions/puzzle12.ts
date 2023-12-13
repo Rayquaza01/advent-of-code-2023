@@ -1,6 +1,8 @@
 const PICROSS_MATCH = /[?.#]/g;
 const DIGIT_MATCH = /\d+/g;
 
+const DEBUG = false;
+
 enum PicrossValues {
     INVALID       = 0x00,
     UNKNOWN       = 0x01,
@@ -22,6 +24,8 @@ function PicrossValuesLookup(v: string) {
 }
 
 function DebugPrint(indentLevel: number, ...rest: any) {
+    if (!DEBUG) return;
+
     let indent = "";
     for (let i = 0; i < indentLevel; i++) {
         indent += "\t";
@@ -75,12 +79,12 @@ function saveCache(line: PicrossValues[], groups: number[], value: number): void
 function FindPossibilities(line: PicrossValues[], groups: number[], lineIndex = 0, groupSum: number | null = null, level = 0): number {
     if (groupSum === null) groupSum = groups.reduce((acc, i) => acc + i, 0);
 
-    // DebugPrint(level, PrintLine(line), groups.join(","));
+    DebugPrint(level, PrintLine(line), groups.join(","));
     // console.log(level)
 
     const cache = readCache(line, groups);
     if (cache) {
-        // DebugPrint(level, "Loaded cache value", cache);
+        DebugPrint(level, "Loaded cache value", cache);
         return cache;
     }
 
@@ -96,11 +100,11 @@ function FindPossibilities(line: PicrossValues[], groups: number[], lineIndex = 
 
     if (line[lineIndex] === PicrossValues.UNKNOWN) {
         line[lineIndex] = PicrossValues.WORKING;
-        // DebugPrint(level, "Trying working");
+        DebugPrint(level, "Trying working");
         possibilities += FindPossibilities(line, groups, lineIndex, groupSum, level + 1);
 
         line[lineIndex] = PicrossValues.DAMAGED;
-        // DebugPrint(level, "Trying damaged");
+        DebugPrint(level, "Trying damaged");
         possibilities += FindPossibilities(line, groups, lineIndex, groupSum, level + 1);
 
         line[lineIndex] = PicrossValues.UNKNOWN;
@@ -112,20 +116,20 @@ function FindPossibilities(line: PicrossValues[], groups: number[], lineIndex = 
 
     if (lineIndex >= line.length && groups.length === 0) {
         if (line.every(i => i === PicrossValues.WORKING)) {
-            // DebugPrint(level, "All groups satisfied, return 1");
+            DebugPrint(level, "All groups satisfied, return 1");
             // LookUpTable[ID] = 1;
             saveCache(line, groups, 1);
             return 1;
         }
 
-        // DebugPrint(level, "All groups satisfied but had extra, return 0");
+        DebugPrint(level, "All groups satisfied but had extra, return 0");
         // LookUpTable[ID] = 0;
         saveCache(line, groups, 0);
         return 0;
     }
 
     if (lineIndex >= line.length && groups.length > 0) {
-        // DebugPrint(level, "Unsatisfied groups, return 0");
+        DebugPrint(level, "Unsatisfied groups, return 0");
         // LookUpTable[ID] = 0;
         saveCache(line, groups, 0);
         return 0;
@@ -144,7 +148,7 @@ function FindPossibilities(line: PicrossValues[], groups: number[], lineIndex = 
     }
 
     if (i === groups[0] && (line[i] === PicrossValues.WORKING || i >= line.length)) {
-        // DebugPrint(level, "Group satisfied!");
+        DebugPrint(level, "Group satisfied!");
         possibilities = FindPossibilities(line.slice(groups[0]), groups.slice(1), 0, groupSum - groups[0], level + 1);
         // LookUpTable[ID] = possibilities;
         saveCache(line, groups, possibilities);
@@ -152,29 +156,34 @@ function FindPossibilities(line: PicrossValues[], groups: number[], lineIndex = 
     }
 
     if (i > groups[0]) {
-        // DebugPrint(level, "Too many in group", `${i} > ${groups[0]}`, "return 0");
+        DebugPrint(level, "Too many in group", `${i} > ${groups[0]}`, "return 0");
         saveCache(line, groups, 0);
         return 0;
     }
 
     if (line[i] === PicrossValues.WORKING) {
-        // DebugPrint(level, "Not enough in group, return 0");
+        DebugPrint(level, "Not enough in group, return 0");
         saveCache(line, groups, 0);
         return 0;
     }
 
     if (line.length < groupSum) {
-        // DebugPrint(level, "Not enough symbols to satisfy group, return 0");
+        DebugPrint(level, "Not enough symbols to satisfy group, return 0");
         saveCache(line, groups, 0);
         return 0;
     }
 
-    // DebugPrint(level, "Group not satisfied!");
-    // if couldn't satisfy group move on to next character
-    possibilities = FindPossibilities(line, groups, lineIndex + 1, groupSum, level + 1);
-    // LookUpTable[ID] = possibilities;
-    saveCache(line, groups, possibilities);
-    return possibilities;
+    if (line.includes(PicrossValues.DAMAGED)) {
+        DebugPrint(level, "Group not satisfied!");
+        // if couldn't satisfy group move on to next character
+        possibilities = FindPossibilities(line, groups, lineIndex + 1, groupSum, level + 1);
+        // LookUpTable[ID] = possibilities;
+        saveCache(line, groups, possibilities);
+        return possibilities;
+    }
+
+    saveCache(line, groups, 0);
+    return 0;
 }
 
 export function puzzle12p1(input: string) {
@@ -221,7 +230,7 @@ export function puzzle12p2(input: string) {
                 ...numbers
             ];
 
-            console.log("Starting with group", PrintLine(unfoldedValues), unfoldedGroups.join(","));
+            console.log(index, "Starting with group", PrintLine(unfoldedValues), unfoldedGroups.join(","));
 
             LookUpTable = {};
 
