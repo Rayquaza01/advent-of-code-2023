@@ -9,3 +9,4 @@ export * from "./puzzle08";
 export * from "./puzzle09";
 export * from "./puzzle10";
 export * from "./puzzle11";
+export * from "./puzzle12";
