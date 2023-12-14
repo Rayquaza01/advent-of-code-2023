@@ -7,4 +7,4 @@ dist/puzzle13p2: src/cpp/puzzle13p2.cc
 	gcc src/cpp/puzzle13p2.cc -o dist/puzzle13p2
 
 dist/puzzle14: src/cpp/puzzle14.cc
-	gcc src/cpp/puzzle14.cc -o dist/puzzle14
+	g++ src/cpp/puzzle14.cc -o dist/puzzle14
