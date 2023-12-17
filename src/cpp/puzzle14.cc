@@ -191,8 +191,9 @@ int main(int argc, char *argv[]) {
 
     int sum = 0;
 
-    if (argc < 1) {
+    if (argc < 2) {
         printf("Missing part argument!\n");
+        return 1;
     }
 
     while (read != -1) {

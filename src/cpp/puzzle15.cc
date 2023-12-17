@@ -117,8 +117,9 @@ int part2() {
 int main(int argc, char *argv[]) {
     int sum;
 
-    if (argc < 1) {
+    if (argc < 2) {
         printf("Missing part argument!\n");
+        return 1;
     }
 
     if (strcmp(argv[1], "1") == 0) {
