@@ -16,6 +16,6 @@
     "no-trailing-spaces": "warn",
     "comma-spacing": "warn",
     "no-nested-ternary": "warn",
-    "max-depth": ["warn", 4]
+    "max-depth": ["warn", 6]
   }
 }

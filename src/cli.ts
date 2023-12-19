@@ -4,6 +4,10 @@ import * as PuzzleSolutions from "./solutions";
 
 import fs from "fs";
 
+function none(): number {
+    return 0;
+}
+
 const solutions = [
     [PuzzleSolutions.puzzle01p1, PuzzleSolutions.puzzle01p2],
     [PuzzleSolutions.puzzle02p1, PuzzleSolutions.puzzle02p2],
@@ -16,7 +20,14 @@ const solutions = [
     [PuzzleSolutions.puzzle09p1, PuzzleSolutions.puzzle09p2],
     [PuzzleSolutions.puzzle10p1, PuzzleSolutions.puzzle10p2],
     [PuzzleSolutions.puzzle11p1, PuzzleSolutions.puzzle11p2],
-    [PuzzleSolutions.puzzle12p1, PuzzleSolutions.puzzle12p2]
+    [PuzzleSolutions.puzzle12p1, PuzzleSolutions.puzzle12p2],
+    [none, none],
+    [none, none],
+    [none, none],
+    [none, none],
+    [none, none],
+    [none, none],
+    [PuzzleSolutions.puzzle19p1, PuzzleSolutions.puzzle19p2],
 ];
 
 const input = [
