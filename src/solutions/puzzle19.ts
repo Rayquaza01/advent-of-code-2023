@@ -145,7 +145,7 @@ export function puzzle19p2(input: string) {
 
                 if (rule[1] === ">") {
                     // quick and dirty way to get a deep copy
-                    const pass = JSON.parse(JSON.stringify(item));
+                    const pass: Rating = JSON.parse(JSON.stringify(item));
                     pass.ranges[rule[0]][0] = Number(rule[2]) + 1;
                     pass.wf = rule[3];
 
@@ -159,7 +159,7 @@ export function puzzle19p2(input: string) {
                 }
 
                 if (rule[1] === "<") {
-                    const pass = JSON.parse(JSON.stringify(item));
+                    const pass: Rating = JSON.parse(JSON.stringify(item));
                     pass.ranges[rule[0]][1] = Number(rule[2]) - 1;
                     pass.wf = rule[3];
 
